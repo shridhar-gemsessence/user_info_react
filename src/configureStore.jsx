@@ -1,3 +1,4 @@
+import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -11,7 +12,7 @@ const middleware = routerMiddleware(history);
 const store = createStore(
   rootReducer,
   composeWithDevTools(
-    applyMiddleware(middleware)
+    applyMiddleware(thunk, middleware)
   )
 );
 
